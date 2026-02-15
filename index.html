@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto de Venta - VentaFácil Demo</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-cart-check-fill text-primary"></i>
+                VentaFácil Demo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pos.html">Punto de Venta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ventas.html">Ventas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reportes.html">Reportes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid mt-5 pt-4">
+        <div class="row">
+            <!-- Columna de Productos (70%) -->
+            <div class="col-lg-8">
+                <div class="p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="text-primary">
+                            <i class="bi bi-grid"></i> Productos
+                        </h2>
+                        <span class="badge bg-success" id="cart-count" style="display: none;">0</span>
+                    </div>
+                    
+                    <!-- Buscador en tiempo real -->
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="form-control form-control-lg" id="search-producto" placeholder="Buscar productos por nombre, código o categoría...">
+                    </div>
+
+                    <!-- Grid de Productos -->
+                    <div class="row g-4" id="productos-grid">
+                        <!-- Los productos se cargarán dinámicamente con JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna del Carrito (30%) -->
+            <div class="col-lg-4">
+                <div class="cart-container">
+                    <h4 class="mb-4">
+                        <i class="bi bi-cart"></i> Carrito de Compras
+                        <span class="badge bg-primary rounded-pill" id="cart-count-side">0</span>
+                    </h4>
+                    
+                    <!-- Items del carrito -->
+                    <div id="cart-items" class="mb-4">
+                        <!-- Los items se cargarán dinámicamente -->
+                    </div>
+
+                    <!-- Totales -->
+                    <div class="cart-total">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Subtotal:</span>
+                            <span class="fw-bold" id="cart-subtotal">$0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>IVA (16%):</span>
+                            <span class="fw-bold" id="cart-iva">$0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="h5">Total:</span>
+                            <span class="h5 text-success" id="cart-total">$0.00</span>
+                        </div>
+                        
+                        <button class="btn btn-success w-100 btn-lg" id="finalizar-venta">
+                            <i class="bi bi-check-circle"></i> Finalizar Venta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Venta -->
+    <div class="modal fade" id="ventaModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-cart-check"></i> Confirmar Venta
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="ventaModalBody">
+                    <!-- Contenido dinámico -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="bi bi-x-circle"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-success" id="confirmarVenta">
+                        <i class="bi bi-check-circle"></i> Confirmar Venta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="text-center text-muted">
+                <small>Demo interactivo de POS - VentaFácil</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+</body>
+</html>
